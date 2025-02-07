@@ -1,0 +1,41 @@
+name: Go
+
+on:
+  push:
+    branches: [ "main" ] # Trigger on pushes to the main branch
+  pull_request:
+    branches: [ "main" ] # Trigger on pull requests to the main branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+    steps:
+    - uses: actions/checkout@v4 # Checkout the repository
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.23' # Use a specific Go version (match your go.mod)
+
+    # - name: Build
+    #   run: go build -v ./... # Build all packages
+
+    # - name: Test
+    #   run: go test -v ./... # Run all tests
+
+    # - name: Run Specific Tests (Example)
+    #   run: go test -v ./internal/book -run TestLessons/Lesson01 # Run tests for a specific lesson
+
+    # - name: Run Benchmarks
+    #   run: go test -bench=. -benchmem -run=^# ./internal/sorting  # Run benchmarks for the sorting package
+
+    - name: Go Report Card
+      run: |
+        curl -L https://goreportcard.com/badge/$(go list -m) > ./goreportcard-badge.svg
+        git config --global user.email "your-email@example.com"  # Replace with your email
+        git config --global user.name "Your Name"  # Replace with your name
+        git add ./goreportcard-badge.svg
+        git commit -m "Update Go Report Card badge"
+        git push origin HEAD:${{ github.ref_name }} #This line pushes
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }} # Use the secret
