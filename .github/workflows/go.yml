@@ -29,13 +29,13 @@ jobs:
     # - name: Run Benchmarks
     #   run: go test -bench=. -benchmem -run=^# ./internal/sorting  # Run benchmarks for the sorting package
 
-    - name: Go Report Card
-      run: |
-        curl -L https://goreportcard.com/badge/$(go list -m) > ./goreportcard-badge.svg
-        git config --global user.email "your-email@example.com"  # Replace with your email
-        git config --global user.name "Your Name"  # Replace with your name
-        git add ./goreportcard-badge.svg
-        git commit -m "Update Go Report Card badge"
-        git push origin HEAD:${{ github.ref_name }} #This line pushes
-      env:
-        GH_TOKEN: ${{ secrets.GO_REPORT_GITHUB_SECRET }} # Use the secret
+    # - name: Go Report Card
+    #   run: |
+    #     curl -L https://goreportcard.com/badge/$(go list -m) > ./goreportcard-badge.svg
+    #     git config --global user.email "your-email@example.com"  # Replace with your email
+    #     git config --global user.name "Your Name"  # Replace with your name
+    #     git add ./goreportcard-badge.svg
+    #     git commit -m "Update Go Report Card badge"
+    #     git push origin HEAD:${{ github.ref_name }} #This line pushes
+    #   env:
+    #     GH_TOKEN: ${{ secrets.GO_REPORT_GITHUB_SECRET }} # Use the secret
