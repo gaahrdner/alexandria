@@ -38,4 +38,4 @@ jobs:
         git commit -m "Update Go Report Card badge"
         git push origin HEAD:${{ github.ref_name }} #This line pushes
       env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }} # Use the secret
+        GH_TOKEN: ${{ secrets.GO_REPORT_GITHUB_SECRET }} # Use the secret
