@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest # Use the latest Ubuntu runner
     steps:
-    - uses: actions/checkout@v4 # Checkout the repository
+    - uses: actions/checkout@v5 # Checkout the repository
 
     - name: Set up Go
       uses: actions/setup-go@v4
