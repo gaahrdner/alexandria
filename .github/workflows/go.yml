@@ -15,7 +15,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
-        go-version: '1.23' # Use a specific Go version (match your go.mod)
+        go-version: '1.27' # Use a specific Go version (match your go.mod)
 
     # - name: Build
     #   run: go build -v ./... # Build all packages
